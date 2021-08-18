@@ -82,7 +82,7 @@ public class Main {
                     System.out.print("The strength of this password is" + strength);
                 }
             }
-            
+
             public static void arrayList() {
                 System.out.println("Please enter some passwords, pressing enter after each of them, then type exit when done");
                 boolean passwordEntry = false;
