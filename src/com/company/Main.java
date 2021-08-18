@@ -14,7 +14,7 @@ public class Main {
 
 
         while (!choiceBreak) {
-            System.out.println("Hello, welcome to the password checker unit, please make a selection from the following\n1. Password comparison unit\n2. Password strength checker\n3. Password Funky-fier \n 4. Password storage");
+            System.out.println("Hello, welcome to the password checker unit, please make a selection from the following\n1. Password comparison unit\n2. Password strength checker\n3. Password Funky-fier \n4. Password storage");
             String inputChoice = in.nextLine();
             switch (inputChoice) {
                 case "1" -> {
@@ -33,7 +33,7 @@ public class Main {
             }
 
 
-            System.out.println("Enter 1 to repeat or 2 to exit");
+            System.out.println("\n Enter 1 to repeat or 2 to exit");
             inputChoiceTwo = in.nextLine();
             while (!exitCondition) {
                 switch (inputChoiceTwo) {
@@ -44,7 +44,7 @@ public class Main {
                         exitCondition = true;
                         choiceBreak = true;
                     }
-                    default -> System.out.print("Please try again");
+                    default -> System.out.print("\nPlease try again");
                 }
             }
         }
@@ -83,6 +83,7 @@ public class Main {
                 }
             }
 
+
             public static void arrayList() {
                 System.out.println("Please enter some passwords, pressing enter after each of them, then type exit when done");
                 boolean passwordEntry = false;
@@ -97,8 +98,33 @@ public class Main {
                     }
                 }
                 System.out.println("These are the passwords you've entered");
-                for (String s : passwords)
-                    System.out.println(s);
+
+                for (String s : passwords) {
+                    int strength = 0;
+                    boolean noSpecialCharacters = false;
+                    int lengthStrength = 0;
+
+                    System.out.println("\n" + s);
+                    switch (s) {
+                        case "!", "$", " ", "£", "%", "^", "&", "*", "(", ")" -> strength++;
+                        default -> noSpecialCharacters = true;
+                    }
+                    if (s.length() >= 12){
+                        strength += 3;
+                        System.out.println("This password is a good length");
+                    } else if (s.length() <= 12 && s.length() >= 5) {
+                        strength += 2;
+                        System.out.println("This password is a medium length");
+                    } else {
+                        strength += 1;
+                        System.out.println("This password is too short");
+                    }
+
+                    if (noSpecialCharacters){
+                        System.out.print("This password contains no special characters");
+                    }
+                    System.out.print("The overall strength of this password is " + strength);
+                }
             }
 
 
