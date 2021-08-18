@@ -116,7 +116,7 @@ public class Main {
                     if (s.length() >= 12){
                         strength += 3;
                         System.out.println("This password is a good length");
-                    } else if (s.length() >= 5 && s.length() <= 12 ) {
+                    } else if (s.length() >= 5) {
                         strength += 2;
                         System.out.println("This password is a medium length");
                     } else {
