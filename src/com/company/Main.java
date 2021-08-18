@@ -114,7 +114,7 @@ public class Main {
                     case 4 -> password = password.replace('I', 'G');
                     case 5 -> password = password.replaceAll("a|e|i|o|u| |", "");
                 }
-                System.out.println("Your new, funky password " + password);
+                System.out.println("Your new, funky password: " + password);
             }
         }
 
