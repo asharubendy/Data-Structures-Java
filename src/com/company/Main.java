@@ -102,16 +102,19 @@ public class Main {
                 for (String s : passwords) {
 
                     int strength = 0;
-                    boolean noSpecialCharacters = false;
+                    boolean noSpecialCharacters = true;
+                    boolean noNumbers = true;
 
                     System.out.println("\n" + s);
-                    switch (s) {
-                        case "!", "$", " ", "£", "%", "^", "&", "*", "(", ")" -> strength++;
-                        default -> noSpecialCharacters = true;
+                    if (s.matches(".*(_|[^\\w]).*")){
+                        strength +=2;
+                        System.out.println("This password contains special characters");
+                        noSpecialCharacters = false;
                     }
-                    if (s.contains("[0-9]+")){
+                    if (s.matches(".*\\d.*")){
                         System.out.println("This password contains both letters and numbers");
                         strength += 2;
+                        noNumbers = false;
                     }
                     if (s.length() >= 12){
                         strength += 3;
@@ -127,7 +130,10 @@ public class Main {
                     if (noSpecialCharacters){
                         System.out.print("This password contains no special characters");
                     }
-                    System.out.print("The overall strength of this password from 1-6 is: " + strength);
+                    if(noNumbers){
+                        System.out.print("This password contains no numbers");
+                    }
+                    System.out.print("\n The overall strength of this password from 1-7 is: " + strength);
                 }
             }
 
