@@ -14,7 +14,7 @@ public class Main {
 
 
         while (!choiceBreak) {
-            System.out.println("Hello, welcome to the password checker unit, please make a selection from the following\n1. Password comparison unit\n2. Password strength checker\n3. Password Funky-fier \n4. Password storage");
+            System.out.println("Hello, welcome to the password utility, please make a selection from the following\n1. Password comparison unit\n2. Password strength checker\n3. Password Funky-fier \n4. Password storage");
             String inputChoice = in.nextLine();
             switch (inputChoice) {
                 case "1" -> {
@@ -100,9 +100,9 @@ public class Main {
                 System.out.println("These are the passwords you've entered");
 
                 for (String s : passwords) {
+
                     int strength = 0;
                     boolean noSpecialCharacters = false;
-                    int lengthStrength = 0;
 
                     System.out.println("\n" + s);
                     switch (s) {
